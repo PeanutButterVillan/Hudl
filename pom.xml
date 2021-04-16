@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.gvs.framework</groupId>
+  <artifactId>gvs-functional-test-suite</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <spring.version>5.1.8.RELEASE</spring.version>
+
+    <cucumber.version>4.7.2</cucumber.version>
+    <cucumber.reporting.version>4.9.0</cucumber.reporting.version>
+    <cucumber-spring.version>4.2.1</cucumber-spring.version>
+    <spring.version>5.1.4.RELEASE</spring.version>
+    <selenium.version>3.14.0</selenium.version>
+    <surefire.version>2.22.2</surefire.version>
+    <junit.version>4.12</junit.version>
+    <!--<log4j.version>1.2.17</log4j.version>-->
+    <java.version>1.8</java.version>
+    <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+    <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+
+    <project.name>GVS Functional Test Suite</project.name>
+
+    <browser>default</browser>
+    <target.environment>sandpit</target.environment>
+
+    <code.source.dir>src${file.separator}main${file.separator}java</code.source.dir>
+    <code.resources.dir>src${file.separator}main${file.separator}resources</code.resources.dir>
+    <features.dir>${code.resources.dir}${file.separator}features${file.separator}</features.dir>
+    <cucumber.output.json.dir>${project.build.directory}${file.separator}cucumber-parallel</cucumber.output.json.dir>
+    <report.output.dir>${project.build.directory}${file.separator}reports</report.output.dir>
+    <lockfile.filepath>${code.resources.dir}${file.separator}data${file.separator}</lockfile.filepath>
+
+  </properties>
+
+  <dependencies>
+    <!-- Cukes Dependencies -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-spring</artifactId>
+      <version>${cucumber-spring.version}</version>
+    </dependency>
+<!--
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+-->
+    <!-- Selenium Dependencies -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-remote-driver</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-chrome-driver</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-firefox-driver</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-ie-driver</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-support</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+
+    <!-- Spring Dependencies -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>5.2.4.RELEASE</version>
+    </dependency>
+    <!-- Misc Dependencies (Junit, Logging, HTTP)-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.mashape.unirest</groupId>
+      <artifactId>unirest-java</artifactId>
+      <version>1.4.9</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-leg-rc</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+
+    <!-- Plugin Dependencies -->
+    <dependency>
+      <groupId>net.masterthought</groupId>
+      <artifactId>maven-cucumber-reporting</artifactId>
+      <version>${cucumber.reporting.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>${surefire.version}</version>
+    </dependency>
+
+    <!-- required by cucumber-spring -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>4.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>java-dotenv</artifactId>
+      <version>5.1.1</version>
+    </dependency>
+
+    <!-- TODO: org.json.simple is only used by the Dynamics client to build json requests by hand; we should use POJOs and JAXB/ObjectMapper instead -->
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <!-- Possibly the best HTML cucumber reporting tool which supports parallel running. -->
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
+        <version>${cucumber.reporting.version}</version>
+        <executions>
+          <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <projectName>${project.name}</projectName>
+              <outputDirectory>${report.output.dir}</outputDirectory>
+              <inputDirectory>${report.output.dir}${file.separator}json</inputDirectory>
+              <jsonFiles>
+                <param>**/*.json</param>
+              </jsonFiles>
+
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <!-- Remove the jar generation entirely - VStack connectivity fix -->
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <!--suppress MavenModelInspection -->
+            <phase>never</phase>
+            <configuration>
+              <finalName>unwanted</finalName>
+              <classifier>unwanted</classifier>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <!--suppress MavenModelInspection -->
+            <phase>never</phase>
+            <configuration>
+              <finalName>unwanted</finalName>
+              <classifier>unwanted</classifier>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Download all dependencies in the beginning maven lifecycles - VStack connectivity fix -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>${maven.dependency.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>go-offline</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>go-offline</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.0.1</version>
+        <executions>
+          <execution>
+            <id>enforce-property</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireProperty>
+                  <property>spring.profiles.active</property>
+                  <message>
+                    You must specify a spring profile!
+                    On the command line you can use: '-Dspring.profiles.active=Profile'
+                    (Current values: 'Regression','Integration')
+                  </message>
+                  <regex>[A-Z][A-Za-z]*</regex>
+                  <regexMessage>The spring profile must be a word beginning with upper case.</regexMessage>
+                </requireProperty>
+              </rules>
+              <fail>true</fail>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+
+    <profile>
+      <id>local</id>
+      <properties>
+        <parallel.tests>1</parallel.tests>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${surefire.version}</version>
+            <configuration>
+              <testFailureIgnore>true</testFailureIgnore>
+              <parallel>all</parallel>
+              <threadCount>${parallel.tests}</threadCount>
+              <perCoreThreadCount>false</perCoreThreadCount>
+              <testClassesDirectory>target/classes</testClassesDirectory>
+              <systemPropertyVariables>
+                <maven.profile>local</maven.profile>
+                <browser>${browser}</browser>
+                <target.environment>${target.environment}</target.environment>
+                <project.name>${project.name}</project.name>
+                <resources.dir>${code.resources.dir}</resources.dir>
+              </systemPropertyVariables>
+              <includes>
+                <!--suppress UnresolvedMavenProperty -->
+                <include>RunCukes${spring.profiles.active}Test</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>bstack</id>
+      <properties>
+        <parallel.tests>5</parallel.tests>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${surefire.version}</version>
+            <configuration>
+              <testFailureIgnore>true</testFailureIgnore>
+              <parallel>all</parallel>
+              <threadCount>${parallel.tests}</threadCount>
+              <perCoreThreadCount>false</perCoreThreadCount>
+              <testClassesDirectory>target/classes</testClassesDirectory>
+              <systemPropertyVariables>
+                <maven.profile>bstack</maven.profile>
+                <browser>${browser}</browser>
+                <target.environment>${target.environment}</target.environment>
+                <project.name>${project.name}</project.name>
+                <resources.dir>${code.resources.dir}</resources.dir>
+              </systemPropertyVariables>
+              <includes>
+                <!--suppress UnresolvedMavenProperty -->
+                <include>RunCukes${spring.profiles.active}Test</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>grid</id>
+      <properties>
+        <parallel.tests>4</parallel.tests>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${surefire.version}</version>
+            <configuration>
+              <testFailureIgnore>true</testFailureIgnore>
+              <parallel>all</parallel>
+              <threadCount>${parallel.tests}</threadCount>
+              <perCoreThreadCount>false</perCoreThreadCount>
+              <testClassesDirectory>target/classes</testClassesDirectory>
+              <systemPropertyVariables>
+                <maven.profile>grid</maven.profile>
+                <browser>${browser}</browser>
+                <target.environment>${target.environment}</target.environment>
+                <project.name>${project.name}</project.name>
+                <resources.dir>${code.resources.dir}</resources.dir>
+              </systemPropertyVariables>
+              <includes>
+                <!--suppress UnresolvedMavenProperty -->
+                <include>RunCukes${spring.profiles.active}Test</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
