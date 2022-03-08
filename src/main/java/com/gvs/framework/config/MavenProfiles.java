@@ -17,11 +17,14 @@ public enum MavenProfiles {
     }
 
     public static MavenProfiles getMatch(String text) {
+        text = "local";
         for (MavenProfiles profile : MavenProfiles.values()) {
             if (profile.toString().equalsIgnoreCase(text)) {
                 return profile;
             }
         }
         throw new RuntimeException("Maven Profile '" + text + "' unsupported.");
+
+
     }
 }

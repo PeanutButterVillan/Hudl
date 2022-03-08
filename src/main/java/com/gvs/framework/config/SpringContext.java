@@ -29,7 +29,7 @@ public class SpringContext {
     public static final String PLATFORM_PROPERTY_NAME = "platform";
     public static final String BSTACK_URL_PROPERTY_NAME = "browserstackurl";
     public static final String BSTACK_LOCAL_BOOL_PROPERTY_NAME = "browserstack.local";
-    public static final String IDM_ENV_PROPERTY_NAME = "idm.env";
+    public static final String costCutter_ENV_PROPERTY_NAME = "costCutter.env";
     public static final String RESOURCES_DIR_PROPERTY_NAME = "resources.dir";
 
     @Autowired

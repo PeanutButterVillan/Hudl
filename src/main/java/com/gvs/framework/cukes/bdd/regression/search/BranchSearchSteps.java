@@ -1,8 +1,7 @@
 package com.gvs.framework.cukes.bdd.regression.search;
 
 import com.gvs.framework.cukes.TestBase;
-import com.gvs.framework.pages.registration.CharityYourOrgDetailsPage;
-import com.gvs.framework.pages.registration.RegistrationPage;
+
 import com.gvs.framework.pages.search.HomeSearchPage;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;

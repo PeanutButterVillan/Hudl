@@ -21,19 +21,12 @@ import java.net.URI;
         plugin = {"json:target/reports/json/cucumber.json"},
         features = {"src/main/resources/features/regression"},
         glue = {"com/gvs/framework/cukes/bdd"},
-        tags = {"@equalExperts"})
+        tags = {"@costcutter"})
 public class RunCukesRegressionTest {
     private static final Logger log = Logger.getLogger(RunCukesRegressionTest.class);
 
     @BeforeClass
     public static void setupSuite() {
 
-        log.info("BEFORECLASS: - we'll add in a restTemplate test here");
-/*
-        RestTemplate restTemplate = new RestTemplate();
-        URI customerApiUrl;
-        ResponseEntity<String> response = restTemplate.exchange(customerApiUrl, HttpMethod.GET,null,String.class);
-        log.info("Response from Customer API: " + response.getStatusCode() + " : " + response.getBody());
-*/
     }
 }

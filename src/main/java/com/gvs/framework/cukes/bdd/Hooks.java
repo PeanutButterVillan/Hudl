@@ -1,7 +1,6 @@
 package com.gvs.framework.cukes.bdd;
 
 import com.gvs.framework.cukes.TestBase;
-import com.gvs.framework.cukes.bdd.regression.CommonStepDefs;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
