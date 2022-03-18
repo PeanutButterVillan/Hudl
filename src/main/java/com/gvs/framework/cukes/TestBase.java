@@ -7,14 +7,12 @@ import com.gvs.framework.config.regression.RegressionPropertyManager;
 import com.gvs.framework.data.DataEntityManager;
 import com.gvs.framework.data.pojo.DataEntity;
 
-import com.gvs.framework.pages.search.HomeSearchPage;
+import com.gvs.framework.pages.search.HomeEnquiryForm;
 
 import com.gvs.framework.util.driver.DriverFactory;
 import com.gvs.framework.util.driver.DriverUtils;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,24 +38,8 @@ public class TestBase {
     protected DataEntityManager dataEntityManager;
 
     @Autowired
-    protected HomeSearchPage homeSearchPage;
+    protected HomeEnquiryForm homeEnquiryPage;
 
-    /*
-    Below Method fetch appropriate TestData for from dataEntity on fly
-     */
-    protected void enterCostCutterSearchDetails(DataEntity dataEntity) {
-        enterCostCutterSearchDetails(
-                dataEntity.getBranchDetails().getBranchTown()
-                );
-    }
 
-    protected void enterCostCutterSearchDetails(String branchTown
-                                          ) {
-        //registrationPage.enterSoleTraderName(firstName, lastName);
-        //registrationPage.enterSoleTraderContactDetails(contactNumber);
-        //registrationPage.enterSoleTraderCompanyDetails(companyName, postcode, contactNumber, emailID);
-        //registrationPage.enterSoleTraderSecurityWord(securityWord, securityHint);
-        //registrationPage.submit();
-    }
 
 }

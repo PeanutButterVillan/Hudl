@@ -9,7 +9,7 @@ public class RegressionPropertyManager {
     private static final String PAGE_PROPERTY_INDICATOR = "page";
     public static final String URL_PROPERTY_INDICATOR = "url";
 
-    private static final String COSTCUTTER_SERVICE_PROPERTY_INDICATOR = "costcutter";
+    private static final String POLICYEXPERT_SERVICE_PROPERTY_INDICATOR = "policyexpert";
 
     private static final String APP_PROPERTY_INDICATOR = "app";
     public static final String PLATFORM_PROPERTY_NAME = "platform";
@@ -28,10 +28,10 @@ public class RegressionPropertyManager {
         }
     }
 
-    public String getCostCutterServiceUrl(){
+    public String getPolicyExpertServiceUrl(){
         return springContext.getEnvProperty(
                 regressionEnvironment.toString()+PROPERTY_SEPARATOR+
-                        COSTCUTTER_SERVICE_PROPERTY_INDICATOR + PROPERTY_SEPARATOR + URL_PROPERTY_INDICATOR);
+                        POLICYEXPERT_SERVICE_PROPERTY_INDICATOR + PROPERTY_SEPARATOR + URL_PROPERTY_INDICATOR);
     }
 
 
