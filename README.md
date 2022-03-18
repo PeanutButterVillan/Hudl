@@ -2,7 +2,7 @@
 This Selenium test suite is designed to validate UI flows.
 
 ## EXPLORATORY TESTING on Home Enquiry Form performed on GoogleChrome MacBook Pro
-###Data Field Entry:
+### Data Field Entry:
 - The help button for Title / FirstName / LastName are identical -  they could be more specific to the date entry field
 - Special characters are allowed as valid entries on - for example '?'
     - FirstName
@@ -27,7 +27,7 @@ This Selenium test suite is designed to validate UI flows.
     - What is your occupation
     - How many bathrooms
     - On any of the Yes / No questions
-###Session Management
+### Session Management
 - no warning given the a timeout will soon occur
 - data can easily be retrieved by page back > a security hazard
 - what is the timeout ? I had it timeout whilst entering data
