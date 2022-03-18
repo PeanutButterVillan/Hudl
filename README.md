@@ -1,6 +1,37 @@
 # GVS Test Suite
 This Selenium test suite is designed to validate UI flows.
 
+## EXPLORATORY TESTING on Home Enquiry Form performed on GoogleChrome MacBook Pro
+###Data Field Entry:
+- The help button for Title / FirstName / LastName are identical -  they could be more specific to the date entry field
+- Special characters are allowed as valid entries on - for example '?'
+    - FirstName
+    - LastName
+- The date field on DateOfBirth behaves when entering date from the keyboard
+    - enter 9 > valid display
+    - on attempting to display 21
+        - enter 2 > displays 20
+        - enter 1 > displays 1
+- What was the decision making process when deciding which fields received a help button ?
+    - entering your name yes?
+    - marital status no?
+- What is your occupation ?
+    - some jobs aren't recognised - eg Prosthodontist
+- Invalid email addresses are being accepted
+    - eg email@-example.com
+- Year that property was built
+    - would be better to use a calendar control
+- Mandatory Field warnings are not given on not entering data  into
+    - Title
+    - What is your marital status
+    - What is your occupation
+    - How many bathrooms
+    - On any of the Yes / No questions
+###Session Management
+- no warning given the a timeout will soon occur
+- data can easily be retrieved by page back > a security hazard
+- what is the timeout ? I had it timeout whilst entering data
+
 ## Requirements
 Please make sure to have Java 1.8 and any version of Maven installed, as these will enable all other dependencies. 
 
@@ -41,7 +72,7 @@ mvn clean verify -P<MavenProfile> -Dspring.profiles.active=<SpringProfile> -Dpla
 
 Example:
 ```
-mvn clean verify -Pgrid -Dplatform=sandpit -Dtest.tags=@Preprod -Dcostcutter.url=http://URL.com
+mvn clean verify -Pgrid -Dplatform=sandpit -Dtest.tags=@Preprod -DprofileExpert.url=http://URL.com
 ```
 
 ### How to debug
