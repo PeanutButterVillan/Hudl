@@ -17,10 +17,10 @@ public class HomeEnquiryForm extends BasePage {
 
     // What are the properties that we need ?
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"main\"]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div[1]/div/input")
+    @FindBy(how = How.XPATH, using = "//p[text()='First name']/following::input")
     public WebElement firstName;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"main\"]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[3]/div/div[1]/div/input")
+    @FindBy(how = How.XPATH, using = "//p[text()='Last name']/following::input")
     public WebElement lastName;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"main\"]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[4]/div/div[1]/div/div/div[1]/select")
@@ -32,7 +32,7 @@ public class HomeEnquiryForm extends BasePage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"main\"]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[4]/div/div[1]/div/div/div[3]/select")
     public WebElement dobYear;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"main\"]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[1]/div/div[1]/div/select")
+    @FindBy(how = How.XPATH, using = "//p[text()='Title']/following::select")
     public WebElement selectTitle;
 
     public HomeEnquiryForm(DriverFactory driverFactory) {
