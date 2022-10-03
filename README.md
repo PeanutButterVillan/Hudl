@@ -95,8 +95,8 @@ value as an argument (see above).
                                   └── TestBase.java							//Abstract Test Superclass
                              ├── pages
                                   ├── BasePage.java							//Abstract Page Superclass	                                       
-                                  └── search							    //Page objects relating to search functionality
-                                        └── HomeSearchPage.java
+                                  └── login							    //Page objects relating to search functionality
+                                        └── HudlLoginForm.java
                             └── util
                                   ├── driver
                                       ├── DriverCapabilityManager.java		//Webdriver Capability Configuration Management

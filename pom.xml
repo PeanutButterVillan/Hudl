@@ -60,13 +60,7 @@
       <artifactId>cucumber-spring</artifactId>
       <version>${cucumber-spring.version}</version>
     </dependency>
-<!--
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>3.4.0</version>
-    </dependency>
--->
+
     <!-- Selenium Dependencies -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -121,7 +115,6 @@
       <artifactId>unirest-java</artifactId>
       <version>1.4.9</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
 
     <dependency>
       <groupId>log4j</groupId>
@@ -178,7 +171,6 @@
       <version>5.1.1</version>
     </dependency>
 
-    <!-- TODO: org.json.simple is only used by the Dynamics client to build json requests by hand; we should use POJOs and JAXB/ObjectMapper instead -->
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
@@ -190,7 +182,7 @@
   <build>
     <plugins>
       <plugin>
-        <!-- Possibly the best HTML cucumber reporting tool which supports parallel running. -->
+
         <groupId>net.masterthought</groupId>
         <artifactId>maven-cucumber-reporting</artifactId>
         <version>${cucumber.reporting.version}</version>
@@ -225,7 +217,7 @@
         </configuration>
       </plugin>
 
-      <!-- Remove the jar generation entirely - VStack connectivity fix -->
+
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <executions>
@@ -256,7 +248,7 @@
         </executions>
       </plugin>
 
-      <!-- Download all dependencies in the beginning maven lifecycles - VStack connectivity fix -->
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
