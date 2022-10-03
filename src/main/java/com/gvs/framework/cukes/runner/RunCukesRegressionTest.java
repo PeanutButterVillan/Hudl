@@ -21,7 +21,7 @@ import java.net.URI;
         plugin = {"json:target/reports/json/cucumber.json"},
         features = {"src/main/resources/features/regression"},
         glue = {"com/gvs/framework/cukes/bdd"},
-        tags = {"@costcutter"})
+        tags = {"@hudl"})
 public class RunCukesRegressionTest {
     private static final Logger log = Logger.getLogger(RunCukesRegressionTest.class);
 

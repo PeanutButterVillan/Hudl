@@ -1,37 +1,6 @@
 # GVS Test Suite
 This Selenium test suite is designed to validate UI flows.
 
-## EXPLORATORY TESTING on Home Enquiry Form performed on GoogleChrome MacBook Pro
-### Data Field Entry:
-- The help button for Title / FirstName / LastName are identical -  they could be more specific to the date entry field
-- Special characters are allowed as valid entries on - for example '?'
-    - FirstName
-    - LastName
-- The date field on DateOfBirth behaves when entering date from the keyboard
-    - enter 9 > valid display
-    - on attempting to display 21
-        - enter 2 > displays 20
-        - enter 1 > displays 1
-- What was the decision making process when deciding which fields received a help button ?
-    - entering your name yes?
-    - marital status no?
-- What is your occupation ?
-    - some jobs aren't recognised - eg Prosthodontist
-- Invalid email addresses are being accepted
-    - eg email@-example.com
-- Year that property was built
-    - would be better to use a calendar control
-- Mandatory Field warnings are not given on not entering data  into
-    - Title
-    - What is your marital status
-    - What is your occupation
-    - How many bathrooms
-    - On any of the Yes / No questions
-### Session Management
-- no warning given the a timeout will soon occur
-- data can easily be retrieved by page back > a security hazard
-- what is the timeout ? I had it timeout whilst entering data
-
 ## Requirements
 Please make sure to have Java 1.8 and any version of Maven installed, as these will enable all other dependencies. 
 
@@ -72,7 +41,7 @@ mvn clean verify -P<MavenProfile> -Dspring.profiles.active=<SpringProfile> -Dpla
 
 Example:
 ```
-mvn clean verify -Pgrid -Dplatform=sandpit -Dtest.tags=@Preprod -DprofileExpert.url=http://URL.com
+mvn clean verify -Dspring.profiles.active=Regression
 ```
 
 ### How to debug
@@ -119,21 +88,13 @@ value as an argument (see above).
                              ├── cukes
                                   ├── bdd
                                       ├─ Hooks.java							//Before/After cucumber hooks generic to all profiles
-                                      └── regression.search							//All 'Regression' profile-specific BDD step implementations
-                                          ├── BranchSearchSteps.java				//BDD step implementations common to multiple 'Regression' scenarios 
+                                      └── regression.login							//All 'Regression' profile-specific BDD step implementations
+                                          ├── hudlLoginStepsDef.java				//BDD step implementations common to multiple 'Regression' scenarios 
                                   ├── runner
                                       └── RunCukesRegressionTest.java			//'Regression' profile-specific cucumber runner class
                                   └── TestBase.java							//Abstract Test Superclass
-                             ├── data
-                                  ├── DataEntityManager.java					//Creates pre-defined DataEntity objects (JSON Test Data Structures)
-                                  └── pojo                                    //Pojo objects used to construct DataEntity objects
-        					            ├── BranchDetails.java	
-        					            └── DataEntity.java	
                              ├── pages
-                                  ├── BasePage.java							//Abstract Page Superclass
-                                  ├── enums
-         					            ├── FieldErrorType.java	
-        					            └── PageErrorType.java	                                       
+                                  ├── BasePage.java							//Abstract Page Superclass	                                       
                                   └── search							    //Page objects relating to search functionality
                                         └── HomeSearchPage.java
                             └── util
@@ -142,8 +103,7 @@ value as an argument (see above).
                                       ├── DriverFactory.java					//Webdriver instantiation management
                                       ├── DriverUtils.java					//Webdriver Utility/Helper Class
                                   └── misc
-                                        └── pojo
-                                              └── FileUtils.java					//File interaction utiliy class
+                                        └── FileUtils.java					//File interaction utiliy class
         └── resources
             ├── binaries									//Binaries required to run Webdriver locally
             ├── config
@@ -151,6 +111,6 @@ value as an argument (see above).
                     └── application-Regression.properties		//'Regression' profile-specific properties
 			├── cucumber.xml								    //Initial spring configuration file
             ├── features.regression.search
-                    └── BranchSearch.feature				
+                    └── hudlLogin.feature				
             └── log4j.properties							//Log file configuration
 ```

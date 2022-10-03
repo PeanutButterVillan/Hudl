@@ -4,10 +4,8 @@ import com.gvs.framework.config.ScenarioContext;
 import com.gvs.framework.config.SpringContext;
 
 import com.gvs.framework.config.regression.RegressionPropertyManager;
-import com.gvs.framework.data.DataEntityManager;
-import com.gvs.framework.data.pojo.DataEntity;
 
-import com.gvs.framework.pages.search.HomeEnquiryForm;
+import com.gvs.framework.pages.login.HudlLoginForm;
 
 import com.gvs.framework.util.driver.DriverFactory;
 import com.gvs.framework.util.driver.DriverUtils;
@@ -35,10 +33,7 @@ public class TestBase {
     protected RemoteWebDriver driver;
 
     @Autowired
-    protected DataEntityManager dataEntityManager;
-
-    @Autowired
-    protected HomeEnquiryForm homeEnquiryPage;
+    protected HudlLoginForm hudlLoginPage;
 
 
 
