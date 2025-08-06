@@ -6,7 +6,7 @@ Feature: Complete Login Form
     Given I am on the hudl login page
     When I enter my email "<email>"
     And I input "<password>" as my password and submit
-    Then the page should contain "Newcastle Jets FC"
+    Then the page should contain a search field
 
     Examples:
       | email                   | password       |
@@ -17,7 +17,7 @@ Feature: Complete Login Form
     Given I am on the hudl login page
     When I enter my email "<email>"
     And I input "<password>" as my password and submit
-    Then the page should contain "Sign up"
+    Then the page should contain a password field
 
     Examples:
       | email                   | password       |

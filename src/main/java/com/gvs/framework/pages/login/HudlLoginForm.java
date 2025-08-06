@@ -16,11 +16,17 @@ import org.springframework.stereotype.Component;
 public class HudlLoginForm extends BasePage {
 
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"email\"]")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"username\"]")
     public WebElement email;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"logIn\"]")
+    @FindBy(how = How.XPATH, using = "//*[@type=\"submit\"]")
+    public WebElement submitUsername;
+
+    @FindBy(how = How.XPATH, using = "//*[@type=\"submit\"]")
     public WebElement login;
+
+    @FindBy(how = How.XPATH, using = "//*[@aria-label=\"Search\"]")
+    public WebElement search;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"password\"]")
     public WebElement password;
@@ -30,7 +36,8 @@ public class HudlLoginForm extends BasePage {
     }
 
     public void clickLogin() {
-        login.click();
+       if ( login.isEnabled() );
+        login.submit();
     }
 
     public void inputEmail(String inEmail) {
@@ -45,4 +52,9 @@ public class HudlLoginForm extends BasePage {
         return driverUtils.isStringVisible(query);
     }
 
+    public boolean verifyImage( WebElement imageElement)
+    {
+        return imageElement.isDisplayed();
+
+    }
 }

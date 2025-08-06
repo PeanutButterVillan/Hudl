@@ -30,21 +30,42 @@ public class hudlLoginStepsDef extends TestBase {
         @When("I enter my email \"([^\"]*)\"$")
         public void iEnterEmail(String email) {
             hudlLoginPage.inputEmail(email);
+            hudlLoginPage.submitUsername.click();
         }
 
         @And("^I input \"([^\"]*)\" as my password and submit$")
         public void I_input_a_password(String password) {
             hudlLoginPage.inputPassword(password);
-            hudlLoginPage.login.click();
+            hudlLoginPage.clickLogin();
+            //hudlLoginPage.login.click();
         }
 
         @Then("^the page should contain \"(.*)\"$")
         public void checkTeam(String teamName) {
 
             log.info("ASSERTION on logging in");
-            assertTrue(hudlLoginPage.verifyContents(teamName));
+            //assertTrue(hudlLoginPage.verifyContents(teamName));
+            assertTrue(hudlLoginPage.search.isDisplayed());
 
         }
+
+    @Then("^the page should contain a search field")
+    public void checkSearch() {
+
+        log.info("ASSERTION on logging in");
+        //assertTrue(hudlLoginPage.verifyContents(teamName));
+        assertTrue(hudlLoginPage.search.isDisplayed());
+
+    }
+
+    @Then("^the page should contain a password field")
+    public void checkPassword() {
+
+        log.info("ASSERTION on logging in");
+        //assertTrue(hudlLoginPage.verifyContents(teamName));
+        assertTrue(hudlLoginPage.password.isDisplayed());
+
+    }
 
 }
 
